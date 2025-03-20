@@ -6,26 +6,26 @@ import 'package:flutter/widgets.dart';
 class CustomZoomableWidget extends StatefulWidget {
   CustomZoomableWidget({
     Key? key,
-    this.minScale: 0.7,
-    this.maxScale: 1.4,
-    this.initialScale: 1.0,
-    this.initialOffset: Offset.zero,
-    this.initialRotation: 0.0,
-    this.enableZoom: true,
-    this.panLimit: 1.0,
-    this.singleFingerPan: true,
-    this.multiFingersPan: true,
-    this.enableRotate: false,
+    this.minScale = 0.7,
+    this.maxScale = 1.4,
+    this.initialScale = 1.0,
+    this.initialOffset = Offset.zero,
+    this.initialRotation = 0.0,
+    this.enableZoom = true,
+    this.panLimit = 1.0,
+    this.singleFingerPan = true,
+    this.multiFingersPan = true,
+    this.enableRotate = false,
     this.child,
     this.onTap,
-    this.zoomSteps: 0,
-    this.autoCenter: false,
-    this.bounceBackBoundary: true,
-    this.enableFling: true,
-    this.flingFactor: 1.0,
+    this.zoomSteps = 0,
+    this.autoCenter = false,
+    this.bounceBackBoundary = true,
+    this.enableFling = true,
+    this.flingFactor = 1.0,
     this.onZoomChanged,
-    this.resetDuration: const Duration(milliseconds: 250),
-    this.resetCurve: Curves.easeInOut,
+    this.resetDuration = const Duration(milliseconds: 250),
+    this.resetCurve = Curves.easeInOut,
   });
 
   /// The minimum size for scaling.
@@ -201,8 +201,12 @@ class _CustomZoomableWidgetState extends State<CustomZoomableWidget> {
 
   Size get _boundarySize {
     Size _boundarySize = Size(
-          (_containerSize.width == _childSize.width) ? (_containerSize.width - _childSize.width / _zoom).abs() : (_containerSize.width - _childSize.width * _zoom).abs() / _zoom,
-          (_containerSize.height == _childSize.height) ? (_containerSize.height - _childSize.height / _zoom).abs() : (_containerSize.height - _childSize.height * _zoom).abs() / _zoom,
+          (_containerSize.width == _childSize.width)
+              ? (_containerSize.width - _childSize.width / _zoom).abs()
+              : (_containerSize.width - _childSize.width * _zoom).abs() / _zoom,
+          (_containerSize.height == _childSize.height)
+              ? (_containerSize.height - _childSize.height / _zoom).abs()
+              : (_containerSize.height - _childSize.height * _zoom).abs() / _zoom,
         ) *
         widget.panLimit;
 
